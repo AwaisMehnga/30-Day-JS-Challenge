@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Custom Parser</title>
+</head>
+<body>
+    <textarea id="input" placeholder="Enter markdown here..."></textarea>
+    
+    <div id="preview"></div>
+
+    <script src="parser.js"></script>
+    <script>
+        const input = document.getElementById('input');
+        const preview = document.getElementById('preview');
+
+        input.addEventListener('input', ()=>{
+            const markdownText = input.value;
+            const htmlContent = parseMarkdown(markdownText);
+            preview.innerHTML = htmlContent;
+        })
+
+        preview.innerHTML = parseMarkdown(input.value);
+    </script>
+</body>
+</html>
